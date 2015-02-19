@@ -3,8 +3,28 @@
 This is based on this demo [Loading Data -> JSON Data](http://www.trirand.com/blog/jqgrid/jqgrid.html "Loading Data -> JSON Data").
 
 ## Usage
+1. First, consider this simple *JQGrid* configuration:
+```javascript
+jQuery("#table").jqGrid({
+	url: 'controller/fetch-data', // feel free to change
+	datatype: 'json',
+	sortname:'field-from-database',
+	sortorder: 'desc',
+	rowNum: 10,
+	rowList:[10,50,100],
+	gridview: true,
+	rownumbers: true,
+	rownumWidth: 20,
+	colNames: [...],
+	colmodel: [{...}]
+	...
+	...
+	...
+});
+		
+```
 
-1. First you need to **extends** the JQGrid class, and implement the method **buildRows** like this:
+2. Now you need to create a php class and **extends** the JQGrid class, and implement the method **buildRows** like this:
 ```php
 class ModelGrid extends JQGrid{
 	
@@ -32,6 +52,29 @@ class ModelGrid extends JQGrid{
 	}
 }
 ```
+3. Create a controller and implement the method defined in *url* parameter in *jqgrid*:
+
+```php
+class Controller{
+
+	public function getFetchData()
+	{
+		$builder = $this->modelRepository->findAll(); // this should return a builder object
+		
+		$fields = Array();
+		$fields[] = 'field1';
+		$fields[] = 'field2';
+		$fields[] = 'field3';
+		
+		$grid = new ModelGrid( $builder, $fields, \Input::get('rows'), \Input::get('page'), \Input::get('sidx'), \Input::get('sord') );
+		
+		$data = $grid->buildRows()->getData();
+		
+		return \Response::json( $data );
+	}
+}
+```
+
 ## After that you can...
 * Data paging;
 * Column sort by click in the column header;

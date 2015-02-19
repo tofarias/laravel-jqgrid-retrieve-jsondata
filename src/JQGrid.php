@@ -1,8 +1,10 @@
 <?php
 
+namespace CPLNet\Support\Grid;
+
 use Illuminate\Database\Eloquent\Builder;
 
-class JQGrid{
+abstract class JQGrid{
 	
 	protected $builder;
 	protected $fields;
@@ -19,7 +21,6 @@ class JQGrid{
 	
 	public function __construct(Builder $builder, Array $fields, $records, $page, $sidx, $sord = 'asc')
 	{
-		$c = $builder->count();
 		$this->builder = $builder;
 		$this->fields  = $fields;
 		$this->records = $records;
@@ -31,6 +32,8 @@ class JQGrid{
 
 		$this->build();
 	}
+	
+	public abstract function buildRows();
 	
 	private function buildTotalPages()
 	{
@@ -56,20 +59,12 @@ class JQGrid{
 									   ->get( $this->fields );
 	}
 	
-	#public abstract function buildRows();
-	
 	private function buildData()
 	{
 		$this->data['page'] = $this->page;
 		$this->data['total'] = $this->totalPages;
 		$this->data['sidx'] = $this->sidx;
 		$this->data['records'] = $this->builderCriteria->count();
-		
-		/* for ( $i = 0; $i < $this->data['records']; $i++) {
-				
-			$this->data['rows'][$i]['id'] = 0;
-			$this->data['rows'][$i]['cell'] = [999];
-		} */
 	}
 	
 	protected function build()

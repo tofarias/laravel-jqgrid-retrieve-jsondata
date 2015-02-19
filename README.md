@@ -73,9 +73,9 @@ class Controller{
 		$builder = $this->modelRepository->findAll();
 		
 		$fields = Array();
-		$fields[] = 'field_from_database1';
-		$fields[] = 'field_from_database2';
-		$fields[] = 'field_from_database3';
+		$fields[] = 'field1_from_database';
+		$fields[] = 'field2_from_database';
+		$fields[] = 'field3_from_database';
 		
 		$grid = new ModelGrid( $builder, $fields, \Input::get('rows'), \Input::get('page'), \Input::get('sidx'), \Input::get('sord') );
 		

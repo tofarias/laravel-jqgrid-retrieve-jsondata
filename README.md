@@ -3,7 +3,7 @@
 This is based on this demo [Loading Data -> JSON Data](http://www.trirand.com/blog/jqgrid/jqgrid.html "Loading Data -> JSON Data").
 
 ## Usage
-1. First, consider this simple *JQGrid* configuration:
+* First, consider this simple *JQGrid* configuration:
 ```javascript
 jQuery("#table").jqGrid({
 	url: 'controller/fetch-data', // feel free to change
@@ -24,7 +24,7 @@ jQuery("#table").jqGrid({
 		
 ```
 
-2. Now you need to create a php class and **extends** the JQGrid class, and implement the method **buildRows** like this:
+* Now you need to create a php class and **extends** the JQGrid class, and implement the method **buildRows** like this:
 ```php
 class ModelGrid extends JQGrid{
 	
@@ -52,7 +52,7 @@ class ModelGrid extends JQGrid{
 	}
 }
 ```
-3. Create a controller and implement the method defined in *url* parameter in *jqgrid*:
+* Create a controller and implement the method defined in *url* parameter in *jqgrid*:
 
 ```php
 class Controller{

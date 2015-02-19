@@ -1,5 +1,7 @@
 # laravel-jqgrid-retrieve-jsondata
 
+*Tested on Laravel 4.2*
+
 This is based on this demo [Loading Data -> JSON Data](http://www.trirand.com/blog/jqgrid/jqgrid.html "Loading Data -> JSON Data").
 
 ## After that you can...

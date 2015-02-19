@@ -57,7 +57,7 @@ class ModelGrid extends JQGrid{
 	}
 }
 ```
-If you need to process the data from different sources you could create a classe for the database like: *ModelSqlServerGrid extends JQGrid*, ModelPostgresSqlGrid extends JQGrid supported by Laravel Eloquent ORM.
+If you need to process the data from different databases you could create a classe for the database like: *ModelSqlServerGrid extends JQGrid*, ModelPostgresSqlGrid extends JQGrid supported by Laravel Eloquent ORM.
 
 * Create a controller and implement the method defined in *url* parameter in *jqgrid*:
 

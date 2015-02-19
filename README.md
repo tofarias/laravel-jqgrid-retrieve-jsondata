@@ -64,7 +64,9 @@ class Controller{
 
 	public function getFetchData()
 	{
-		$builder = $this->modelRepository->findAll(); // this should return a builder object
+		// Here, you can use many 'wheres', 'joins', doesn't matter.
+		// The important is return a builder object.
+		$builder = $this->modelRepository->findAll();
 		
 		$fields = Array();
 		$fields[] = 'field1';

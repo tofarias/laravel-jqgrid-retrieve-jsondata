@@ -57,6 +57,8 @@ class ModelGrid extends JQGrid{
 	}
 }
 ```
+If you need to process the data from different sources you could create a classe for the database like: *ModelSqlServerGrid extends JQGrid*, ModelPostgresSqlGrid extends JQGrid, ModelFileGrid extends JQGrid.
+
 * Create a controller and implement the method defined in *url* parameter in *jqgrid*:
 
 ```php

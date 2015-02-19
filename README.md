@@ -4,8 +4,8 @@ This is based on this demo [Loading Data -> JSON Data](http://www.trirand.com/bl
 
 ## After that you can...
 * Data paging;
-* Column sort by click in the column header;
-* On grid load default sort by specific field;
+* Sort a column by click in the column header;
+* On grid load, sort by default field;
 
 ## Usage
 * First, consider this simple *JQGrid* configuration:

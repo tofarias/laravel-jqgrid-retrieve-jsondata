@@ -1,4 +1,4 @@
-```php
+<?php
 class BillController extends \BaseController implements IGrid{
 
 	private $fcfoRepo;
@@ -27,4 +27,3 @@ class BillController extends \BaseController implements IGrid{
 		return \Response::json( $data );
 	}
 }
-```
